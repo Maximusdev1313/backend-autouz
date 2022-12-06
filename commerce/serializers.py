@@ -11,7 +11,7 @@ class ProductSerializer(serializers.ModelSerializer):
     rasmlari = ProductRasmiSerializer(many= True, read_only=True)
     class Meta: 
         model = Product
-        fields = ['id', 'nomi', 'kilogramm', 'litri', 'soni', 'narx', 'eski_narx', 'chegirma_foizi', 'kerakli' ,'time',  'mahsulot', 'rasmlari']
+        fields = ['id', 'car_name', 'price', 'author_name', 'author_number', 'car_accident', 'year_of_manufacture', 'mileage', 'body', 'color', 'equipment', 'condition' ,'time',  'mahsulot', 'rasmlari']
     def __str__(self):
         return self.nomi
 
@@ -19,7 +19,7 @@ class ProductSerializer(serializers.ModelSerializer):
 class FileSerializer(serializers.ModelSerializer):
     class Meta:
         model = CategoriyaRasm
-        fields = ['id', 'link', 'title', 'rasmlar']
+        fields = ['id', 'images', 'title', 'rasmlar']
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -28,4 +28,4 @@ class CategorySerializer(serializers.ModelSerializer):
     mahsulot = ProductSerializer(many=True, read_only=True)
     class Meta:
         model = Categoriya
-        fields = ['id','categoriya_nomi', 'rasmlar', 'mahsulot' ]
+        fields = ['id','category_name', 'rasmlar', 'mahsulot' ]
